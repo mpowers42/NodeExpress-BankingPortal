@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const accountRoutes = require('./routes/accounts.js');
-const serviceRoutes = require('./routes/services.js');
+const servicesRoutes = require('./routes/services.js');
 
 const app = new express();
 
@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded(extended=true));
 
 app.use('/account', accountRoutes);
-app.use('/services', serviceRoutes);
+app.use('/services', servicesRoutes);
 
 app.get('/', (req, res) => 
   res.render('index', { title: 'Account Summary', accounts
