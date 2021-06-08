@@ -9,8 +9,18 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-fs.readFileSync('src/json/accounts.json', encoding='utf-8');
+const accountData = fs.readFileSync(
+  path.join(__dirname, 'json', 'accounts.json'), 'utf-8'
+);
+const accounts = JSON.parse(accountData);
 
-app.get('/', (req, res) => res.render('index', { title: 'Index'}));
+const userData = fs.readFileSync(
+  path.join(__dirname, 'json', 'users.json'), 'utf-8'
+);
+const users = JSON.parse(userData);
+
+app.get('/', (req, res) => 
+  res.render('index', { title: 'Account Summary', accounts: 'accounts'
+}));
 
 app.listen(3000, () => console.log('PS Project running on port 3000'));
