@@ -15,4 +15,4 @@ router.get('/credit', (req, res) =>
   res.render('account', { account: accounts.credit 
 }));
 
-module.export = router;
+module.exports = router;
