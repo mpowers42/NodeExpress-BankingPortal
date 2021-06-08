@@ -23,4 +23,4 @@ router.post('/payment', (req, res) => {
   res.render('payment', { message: "Payment Successful", account: accounts.credit })
 });
 
-modules.export = router;
+module.export = router;
