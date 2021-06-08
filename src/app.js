@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+fs.readFileSync('src/json/accounts.json', encoding='utf-8');
+
 app.get('/', (req, res) => res.render('index', { title: 'Index'}));
 
 app.listen(3000, () => console.log('PS Project running on port 3000'));
